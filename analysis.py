@@ -8,6 +8,8 @@ import argparse
 
 from watson_developer_cloud import PersonalityInsightsV3
 
+import local
+
 
 def init_service():
     """
@@ -17,7 +19,7 @@ def init_service():
         version='2017-10-13',
         # url is optional, and defaults to the URL below. Use the correct URL for your region.
         url='https://gateway.watsonplatform.net/personality-insights/api',
-        iam_apikey=None)
+        iam_apikey=local.API_KEY)
     return service
 
 
