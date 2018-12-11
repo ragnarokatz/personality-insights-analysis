@@ -27,7 +27,8 @@ def extract(file_name):
             return file.read()
 
         if file_name.endswith('.json'):
-            return json.load(file)
+            data = json.load(file)
+            return '\n'.join(data)
 
         raise NotImplementedError(f'Unsupported format, file name is {file_name}')
 
@@ -46,8 +47,8 @@ def driver(input_file_name, output_file_name):
 
 def main():
     parser = argparse.ArgumentParser(description="driver")
-    parser.add_argument("--input_file_name", default="sample.txt")
-    parser.add_argument("--output_file_name", default="output.txt")
+    parser.add_argument("--input_file_name", default="sample.json")
+    parser.add_argument("--output_file_name", default="output.json")
     parsed_args = vars(parser.parse_args(sys.argv[1:]))
     driver(**parsed_args)
 
