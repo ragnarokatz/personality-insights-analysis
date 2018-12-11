@@ -34,7 +34,7 @@ def extract(file_name):
 
 def write(data, file_name):
     with open(file_name, 'w') as file:
-        json.dump(data, file, indent=2)
+        json.dump(data, file, indent=4)
 
 
 def driver(input_file_name, output_file_name):
