@@ -8,6 +8,8 @@ import argparse
 
 from watson_developer_cloud import PersonalityInsightsV3
 
+import local
+
 
 def init_service():
     """
@@ -17,7 +19,7 @@ def init_service():
         version='2017-10-13',
         # url is optional, and defaults to the URL below. Use the correct URL for your region.
         url='https://gateway.watsonplatform.net/personality-insights/api',
-        iam_apikey=None)
+        iam_apikey=local.API_KEY)
     return service
 
 
@@ -41,7 +43,11 @@ def write(data, file_name):
 def driver(input_file_name, output_file_name):
     service = init_service()
     input_data = extract(input_file_name)
-    output_data = service.profile(input_data, content_type='text/plain', raw_scores=True).get_result()
+    output_data = service.profile(
+        input_data,
+        content_type='text/plain',
+        raw_scores=True,
+        consumption_preferences=True).get_result()
     write(output_data, output_file_name)
 
 
