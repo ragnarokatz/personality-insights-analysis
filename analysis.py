@@ -43,7 +43,11 @@ def write(data, file_name):
 def driver(input_file_name, output_file_name):
     service = init_service()
     input_data = extract(input_file_name)
-    output_data = service.profile(input_data, content_type='text/plain', raw_scores=True).get_result()
+    output_data = service.profile(
+        input_data,
+        content_type='text/plain',
+        raw_scores=True,
+        consumption_preferences=True).get_result()
     write(output_data, output_file_name)
 
 
