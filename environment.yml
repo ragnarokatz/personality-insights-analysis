@@ -32,5 +32,3 @@ dependencies:
     - urllib3==1.24.1
     - watson-developer-cloud==2.5.1
     - websocket-client==0.48.0
-prefix: C:\Users\boyao\Documents\miniconda3\envs\watson
-
